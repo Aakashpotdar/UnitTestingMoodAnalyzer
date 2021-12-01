@@ -72,5 +72,31 @@ namespace CheckUnitTestCase
             Assert.AreEqual(expected, check);
 
         }
+        [TestMethod]
+        public void TestMethod6()
+        {  
+            object expected = new CheckMood1();
+
+            object obj = MoodAnalyzerFactory.CreatMoodAnalyzer("MoodAnalyzerProblem.CheckMood1","CheckMood1");
+            expected.Equals(obj);
+        }
+        [TestMethod]
+        public void TestMethod7()
+        {
+            object expected = new CheckMood1("Happy");
+
+            object obj = MoodAnalyzerFactory.CreatMoodAnalyzerParametrized("MoodAnalyzerProblem.CheckMood1", "CheckMood1","Happy");
+            expected.Equals(obj);
+        }
+
+        [TestMethod]
+        public void TestMethod8()
+        {
+            string expected ="Happy";
+
+            string mood = MoodAnalyzerFactory.InvokeCheckMood2("Happy", "CheckMood1").ToString();
+
+            Assert.AreEqual(expected,mood);
+        }
     }
 }

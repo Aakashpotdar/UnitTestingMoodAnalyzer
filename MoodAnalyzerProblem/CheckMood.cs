@@ -6,14 +6,13 @@ namespace MoodAnalyzerProblem
 {
     public class CheckMood
     {
-        
-        
-        public string Mood;
+
+
+        public string Mood=null;
         public CheckMood(string Mood)
         {
             this.Mood = Mood;
         }
-    
         public string CheckCurrentMood()
         {
             try
@@ -34,4 +33,4 @@ namespace MoodAnalyzerProblem
             return "";
         }
     }
-}
+    }

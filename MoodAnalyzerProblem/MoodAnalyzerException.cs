@@ -8,8 +8,16 @@ namespace MoodAnalyzerProblem
     {
         public MoodAnalyzerException(string Mood):base(string.Format("Invalid Mood is enterd")) {  }
     
-    
-    
-      //  public MoodAnalyzerException(string Mood) : base(string.Format("Invalid Mood is enterd")) { }
     }
+    public class MoodAnalyzerClassException : Exception
+    {
+        public MoodAnalyzerClassException(string Massage) : base(string.Format("Class not found Exception")) { }
+
+    }
+    public class MoodAnalyzerMethodException : Exception
+    {
+        public MoodAnalyzerMethodException(string Massage) : base(string.Format("no such Constructor or method not found Exception")) { }
+
+    }
+
 }

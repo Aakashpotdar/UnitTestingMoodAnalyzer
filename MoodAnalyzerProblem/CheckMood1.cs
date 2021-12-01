@@ -1,15 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Text;
 
 namespace MoodAnalyzerProblem
 {
     public class CheckMood1
     {
-        public string Mood;
+        public string Mood="Good";
+        public CheckMood1()
+        {
+            //this.Mood = Mood;
+        }
         public CheckMood1(string Mood)
         {
-            this.Mood = Mood;
+                this.Mood = Mood;
         }
 
         public string CheckCurrentMood()
