@@ -6,6 +6,10 @@ namespace MoodAnalyzerProblem
     {
         public static void Main(string[] args)
         {
+            string expected = "Happy";
+
+            String mood = MoodAnalyzerReflector.InvokeCheckMood2("Happy", "CheckCurrentMood").ToString();
+
         }
     }
 }

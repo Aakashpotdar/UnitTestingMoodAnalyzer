@@ -11,7 +11,7 @@ namespace CheckUnitTestCase
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        public void CheckTheMood()
         {
             CheckMood obj = new CheckMood("I am in good mood");
 
@@ -23,7 +23,7 @@ namespace CheckUnitTestCase
             
         }
         [TestMethod]
-        public void TestMethod2()
+        public void CheckMoodSad()
         {
             CheckMood obj = new CheckMood("I am in sad mood");
 
@@ -34,7 +34,7 @@ namespace CheckUnitTestCase
             Assert.AreEqual(unexpected, check);
         }
         [TestMethod]
-        public void TestMethod3()
+        public void CheckMoodHappy()
         {
             CheckMood obj = new CheckMood(null);
 
@@ -46,7 +46,7 @@ namespace CheckUnitTestCase
 
         }
         [TestMethod]
-        public void TestMethod4()
+        public void CheckMoodThrowNullMoodException()
         {
             CheckMood1 obj = new CheckMood1(null);
 
@@ -59,7 +59,7 @@ namespace CheckUnitTestCase
             Assert.AreEqual(expected, check);
         }
         [TestMethod]
-        public void TestMethod5()
+        public void CheckMoodCostomizedException()
         {
             CheckMood2 obj = new CheckMood2("");
 
@@ -73,30 +73,40 @@ namespace CheckUnitTestCase
 
         }
         [TestMethod]
-        public void TestMethod6()
+        public void InvokeClassObject()
         {  
             object expected = new CheckMood1();
 
-            object obj = MoodAnalyzerFactory.CreatMoodAnalyzer("MoodAnalyzerProblem.CheckMood1","CheckMood1");
+            object obj = MoodAnalyzerReflector.CreatMoodAnalyzer("MoodAnalyzerProblem.CheckMood1","CheckMood1");
             expected.Equals(obj);
         }
         [TestMethod]
-        public void TestMethod7()
+        public void InvokeParametrisedConstructorClass()
         {
             object expected = new CheckMood1("Happy");
 
-            object obj = MoodAnalyzerFactory.CreatMoodAnalyzerParametrized("MoodAnalyzerProblem.CheckMood1", "CheckMood1","Happy");
+            object obj = MoodAnalyzerReflector.CreatMoodAnalyzerParametrized("MoodAnalyzerProblem.CheckMood2", "CheckMood2","Happy");
             expected.Equals(obj);
         }
 
         [TestMethod]
-        public void TestMethod8()
+        public void InvokeTheMethodUsingReflection()
         {
-            string expected ="Happy";
+            string expected ="Happy Mood";
 
-            string mood = MoodAnalyzerFactory.InvokeCheckMood2("Happy", "CheckMood1").ToString();
+            String mood = MoodAnalyzerReflector.InvokeCheckMood2("I am in good mood", "CheckCurrentMood").ToString();
 
             Assert.AreEqual(expected,mood);
+        }
+
+        [TestMethod]
+        public void ChekingInvalidMoodUsingReflection()
+        {
+            string expected = "No such Mood";
+
+            String mood = MoodAnalyzerReflector.InvokeCheckMood2("Good", "CheckCurrentMood").ToString();
+
+            Assert.AreEqual(expected, mood);
         }
     }
 }

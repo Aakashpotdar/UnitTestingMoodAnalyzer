@@ -28,13 +28,15 @@ namespace MoodAnalyzerProblem
                 {
                     return "Sad Mood";
                 }
+                else
+                {
+                    return "No such Mood";
+                }
             }
             catch (MoodAnalyzerException e)
             {
                 return "Happy";
             }
-            return "";
         }
-        
     }
 }

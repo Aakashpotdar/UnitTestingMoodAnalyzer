@@ -7,7 +7,7 @@ using MoodAnalyzerProblem;
 
 namespace MoodAnalyzerProblem
 {
-    public class MoodAnalyzerFactory
+    public class MoodAnalyzerReflector
     {
         
         public static object CreatMoodAnalyzer(string className,string constructorName)
@@ -34,7 +34,7 @@ namespace MoodAnalyzerProblem
         }
         public static object CreatMoodAnalyzerParametrized(string className, string constructorName,string massage)
         {
-            Type type = typeof(CheckMood1);
+            Type type = typeof(CheckMood2);
 
             if (type.Name.Equals(className) || type.FullName.Equals(className))
             {
@@ -59,8 +59,8 @@ namespace MoodAnalyzerProblem
         {
             try
             {
-                Type type1 = Type.GetType("MoodAnalyzerProblem.CheckMood1");
-                object obj = MoodAnalyzerFactory.CreatMoodAnalyzerParametrized("MoodAnalyzerProblem.CheckMood1", "CheckMood1", message);
+                Type type1 = Type.GetType("MoodAnalyzerProblem.CheckMood2");
+                object obj = MoodAnalyzerReflector.CreatMoodAnalyzerParametrized("MoodAnalyzerProblem.CheckMood2", "CheckMood2", message);
                 MethodInfo MoodInfo = type1.GetMethod(methodName);
                 object mood = MoodInfo.Invoke(obj, null);
                 return mood.ToString();
