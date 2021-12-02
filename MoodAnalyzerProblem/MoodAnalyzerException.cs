@@ -19,5 +19,10 @@ namespace MoodAnalyzerProblem
         public MoodAnalyzerMethodException(string Massage) : base(string.Format("no such Constructor or method not found Exception")) { }
 
     }
+    public class MoodAnalyzerNullMoodException : Exception
+    {
+        public MoodAnalyzerNullMoodException(string Massage) : base(string.Format("Mood Null Exception")) { }
+
+    }
 
 }

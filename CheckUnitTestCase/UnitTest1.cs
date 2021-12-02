@@ -108,5 +108,13 @@ namespace CheckUnitTestCase
 
             Assert.AreEqual(expected, mood);
         }
+        [TestMethod]
+        public void ChekingNullMoodUsingReflection()
+        {
+            string expected = "No such Mood";
+
+            var mood = Assert.ThrowsException<MoodAnalyzerNullMoodException>(()=> MoodAnalyzerReflector.InvokeCheckMood2("null", "CheckCurrentMood").ToString());
+            Assert.AreEqual(mood.Message, "Mood Null Exception");
+        }
     }
 }

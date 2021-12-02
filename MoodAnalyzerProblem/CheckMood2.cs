@@ -16,24 +16,33 @@ namespace MoodAnalyzerProblem
         {
             try
             {
-                if (Mood == null||Mood=="")
+                if (Mood != "")
                 {
-                    throw new MoodAnalyzerException(Mood);
-                }
-                else if (Mood.Equals("I am in good mood"))
-                {
-                    return "Happy Mood";
-                }
-                else if (Mood.Equals("I am in sad mood"))
-                {
-                    return "Sad Mood";
+                    if (Mood.Equals("null"))
+                    {
+
+                        throw new MoodAnalyzerNullMoodException("Enter Mood");
+                        
+                    }
+                    else if (Mood.Equals("I am in good mood"))
+                    {
+                        return "Happy Mood";
+                    }
+                    else if (Mood.Equals("I am in sad mood"))
+                    {
+                        return "Sad Mood";
+                    }
+                    else
+                    {
+                        return "No such Mood";
+                    }
                 }
                 else
                 {
-                    return "No such Mood";
+                    throw new MoodAnalyzerException(Mood);
                 }
             }
-            catch (MoodAnalyzerException e)
+            catch (MoodAnalyzerException)
             {
                 return "Happy";
             }
